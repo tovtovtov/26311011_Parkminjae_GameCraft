@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="App">
+      <UniqueIdentifier>{b48a83d1-6a66-4c15-9dd4-25772cfdccce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\ResourceManager">
+      <UniqueIdentifier>{b9454748-2d5f-4cf7-abb5-b73133bc2267}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\InputManager">
+      <UniqueIdentifier>{11b13525-9a1a-4908-95a7-0ec9ba5ccde9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\SceneManager">
+      <UniqueIdentifier>{f5118229-49d0-4d8b-b016-4a364a557c3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\TimeSystem">
+      <UniqueIdentifier>{60be8eaa-02f5-4470-85b7-7cf6290f808a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\ResourceManager\TextureManager">
+      <UniqueIdentifier>{a4452e1a-8d27-45b2-a196-8f5a9b6a75bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\ResourceManager\SoundManager">
+      <UniqueIdentifier>{09c708c4-8b9b-4c65-afba-38fe8fdc6748}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\ResourceManager\AnimationManager">
+      <UniqueIdentifier>{fbcc5fe6-26a6-4744-946c-38838f8df87e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\ResourceManager\AnimationManager\AnimationClip">
+      <UniqueIdentifier>{e60a3e87-7447-4cbb-befd-0905a94462df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\ResourceManager\AnimationManager\AnimationClip\SpriteFrame">
+      <UniqueIdentifier>{fc660dd0-f41a-4d2a-a7f8-c80d311bf05b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\ResourceManager\AnimationManager\Animator">
+      <UniqueIdentifier>{d05f148d-a980-4bbc-85e6-3dead46e4d1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{9abb9852-6376-4e13-b4e2-6867daaf243e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{cdea5127-86b1-432f-810a-5a0a53107128}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\DebugScene">
+      <UniqueIdentifier>{6f6e9ecd-cbc0-4953-abfe-bf983a940460}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="_main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="App.cpp">
+      <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeSystem.cpp">
+      <Filter>App\TimeSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>App\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>App\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>App\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>App\ResourceManager\TextureManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>App\ResourceManager\SoundManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteFrame.cpp">
+      <Filter>App\ResourceManager\AnimationManager\AnimationClip\SpriteFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationClip.cpp">
+      <Filter>App\ResourceManager\AnimationManager\AnimationClip</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationManager.cpp">
+      <Filter>App\ResourceManager\AnimationManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>App\ResourceManager\AnimationManager\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="_configLib.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugScene.cpp">
+      <Filter>Scene\DebugScene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.h">
+      <Filter>App</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeSystem.h">
+      <Filter>App\TimeSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>App\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>App\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>App\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>App\ResourceManager\TextureManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>App\ResourceManager\SoundManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>App\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteFrame.h">
+      <Filter>App\ResourceManager\AnimationManager\AnimationClip\SpriteFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationClip.h">
+      <Filter>App\ResourceManager\AnimationManager\AnimationClip</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationManager.h">
+      <Filter>App\ResourceManager\AnimationManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>App\ResourceManager\AnimationManager\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugScene.h">
+      <Filter>Scene\DebugScene</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
