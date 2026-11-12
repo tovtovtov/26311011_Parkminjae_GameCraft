@@ -52,37 +52,56 @@ void DebugScene::Init()
     // Walk animation
     {
         animationManager.AddFromRow(
-            "walk_down", playerTexture, 0, 6, 0.07f
+            "walk_down", playerTexture, 0, 6, 0.07f, 64, 64
         );
         animationManager.AddFromRow(
-            "walk_left", playerTexture, 1, 6, 0.07f
+            "walk_left", playerTexture, 1, 6, 0.07f, 64, 64
         );
         animationManager.AddFromRow(
-            "walk_right", playerTexture, 2, 6, 0.07f
+            "walk_right", playerTexture, 2, 6, 0.07f, 64, 64
         );
         animationManager.AddFromRow(
-            "walk_up", playerTexture, 3, 6, 0.07f
+            "walk_up", playerTexture, 3, 6, 0.07f, 64, 64
         );
     }
     // Idle animation
     {
         animationManager.AddFromRow(
-            "idle_down", playerTexture, 4, 6, 0.15f
+            "idle_down", playerTexture, 4, 6, 0.15f, 64, 64
         );
 
         animationManager.AddFromRow(
-            "idle_left", playerTexture, 5, 6, 0.15f
+            "idle_left", playerTexture, 5, 6, 0.15f, 64, 64
         );
 
         animationManager.AddFromRow(
-            "idle_right", playerTexture, 6, 6, 0.15f
+            "idle_right", playerTexture, 6, 6, 0.15f, 64, 64
         );
 
         animationManager.AddFromRow(
-            "idle_up", playerTexture, 7, 6, 0.15f
+            "idle_up", playerTexture, 7, 6, 0.15f, 64, 64
         );
     }
     
+    // Attack animation
+    {
+        animationManager.AddFromRow(
+            "attack_down", playerTexture, 8, 6, 0.07f, 64, 64
+        );
+
+        animationManager.AddFromRow(
+            "attack_up", playerTexture, 9, 6, 0.07f, 64, 64
+        );
+
+        animationManager.AddFromRow(
+            "attack_left", playerTexture, 10, 6, 0.07f, 64, 64
+        );
+
+        animationManager.AddFromRow(
+            "attack_right", playerTexture, 11, 6, 0.07f, 64, 64
+        );
+    }
+
     m_player = new Player(
         m_inputManager,
         animationManager

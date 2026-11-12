@@ -1,0 +1,32 @@
+
+App
+├── TimeSystem
+├── ResourceManager
+│   ├── TextureManager
+│   ├── AnimationManager
+ |    │	├── AnimationClip
+│   │   	│	└── SpriteFrame
+ |    │   	└── Animator
+│   └── SoundManager
+├── SceneManager
+├── InputManager
+└── Scene
+    ├── Map
+    │   └── MapData
+    ├── EntityManager
+    │   ├── Entity
+    │   │   ├── Character
+    │   │   │   ├── Player
+    │   │   │   └── Mob
+    │   │   │       └── Boss
+    │   │   ├── WorldObject
+    │   │   └── Projectile
+    │   └── ...
+    ├── UIManager
+    └── Camera
+
+Character
+├── CharacterState
+└── Animator
+    └── AnimationClip
+        └── SpriteFrame

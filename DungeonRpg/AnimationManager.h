@@ -18,7 +18,9 @@ public:
         int textureKey,
         int row,
         int frameCount,
-        float frameDuration
+        float frameDuration,
+        int width,
+        int height
     );
 
     const AnimationClip* Get(const std::string& name) const;

@@ -10,10 +10,12 @@ bool AnimationManager::AddFromRow(
     int textureKey,
     int row,
     int frameCount,
-    float frameDuration)
+    float frameDuration,
+    int width,
+    int height)
 {
-    const int FRAME_WIDTH = 64;
-    const int FRAME_HEIGHT = 64;
+    const int FRAME_WIDTH = width;
+    const int FRAME_HEIGHT = height;
 
     const int SHEET_COLUMNS = 6;
     const int SHEET_ROWS = 16;
