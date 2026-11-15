@@ -4,7 +4,6 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include <string>
 
 bool MapData::LoadCSV(const std::string& path)
 {
@@ -12,11 +11,12 @@ bool MapData::LoadCSV(const std::string& path)
 
     if (!file.is_open())
     {
-        std::cerr << "Failed to open map CSV: " << path << '\n';
+        std::cerr << "Failed to open CSV: "
+            << path << '\n';
         return false;
     }
 
-    m_tiles.clear();
+    std::vector<std::vector<int>> newTiles;
 
     std::string line;
 
@@ -29,14 +29,19 @@ bool MapData::LoadCSV(const std::string& path)
 
         while (std::getline(stream, value, ','))
         {
-            // Windows CSV의 줄 끝에 남을 수 있는 공백 제거
-            size_t start = value.find_first_not_of(" \t\r\n");
-            size_t end = value.find_last_not_of(" \t\r\n");
+            size_t start =
+                value.find_first_not_of(" \t\r\n");
+
+            size_t end =
+                value.find_last_not_of(" \t\r\n");
 
             if (start == std::string::npos)
                 continue;
 
-            value = value.substr(start, end - start + 1);
+            value = value.substr(
+                start,
+                end - start + 1
+            );
 
             try
             {
@@ -44,38 +49,39 @@ bool MapData::LoadCSV(const std::string& path)
             }
             catch (...)
             {
-                std::cerr << "Invalid tile ID in CSV\n";
+                std::cerr << "Invalid tile ID\n";
                 return false;
             }
         }
 
         if (!row.empty())
-            m_tiles.push_back(row);
+            newTiles.push_back(row);
     }
 
-    file.close();
-
-    if (m_tiles.empty())
+    if (newTiles.empty())
         return false;
 
-    m_height = static_cast<int>(m_tiles.size());
-    m_width = static_cast<int>(m_tiles[0].size());
+    int width = static_cast<int>(
+        newTiles[0].size()
+        );
 
-    // 모든 행의 타일 개수가 같은지 검사
-    for (const auto& row : m_tiles)
+    for (const auto& row : newTiles)
     {
-        if (static_cast<int>(row.size()) != m_width)
+        if (static_cast<int>(row.size()) != width)
         {
-            std::cerr << "Invalid map row width\n";
-            m_tiles.clear();
-            m_width = 0;
-            m_height = 0;
+            std::cerr << "Invalid CSV row width\n";
             return false;
         }
     }
 
+    m_tiles = std::move(newTiles);
+
+    m_width = width;
+    m_height = static_cast<int>(m_tiles.size());
+
     std::cout << "Map loaded: "
-        << m_width << " x " << m_height << '\n';
+        << m_width << " x "
+        << m_height << '\n';
 
     return true;
 }

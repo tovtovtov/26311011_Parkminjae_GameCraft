@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include <string>
@@ -12,10 +13,17 @@ private:
     int m_currentFrame;
     float m_elapsedTime;
 
+    bool m_loop;
+    bool m_finished;
+
 public:
     Animator(const AnimationManager& manager);
 
-    void Play(const std::string& name);
+    void Play(const std::string& name, bool loop = true);
+
     void Update(float deltaTime);
+
     void Render(const VEC2& position, const VEC2& scale) const;
+
+    bool IsFinished() const;
 };

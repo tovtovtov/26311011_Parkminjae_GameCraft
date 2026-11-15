@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include "Scene.h"
@@ -5,17 +6,29 @@
 #include "InputManager.h"
 #include "Player.h"
 
+#include "MapData.h"
+#include "MapRenderer.h"
+
 class DebugScene : public Scene
 {
 private:
     ResourceManager& m_resourceManager;
     InputManager& m_inputManager;
 
-    Player* m_player;
+    Player* m_player = nullptr;
 
-    // 임시 추가 추후 삭제 필요
-    int m_backgroundTexture = 0;
-    int m_backgroundMusic = 0;
+    // 맵 데이터
+    MapData m_groundMap;
+    MapData m_wallMap;
+    MapData m_wallRoofMap;
+
+    // 맵 렌더러
+    MapRenderer m_groundRenderer;
+    MapRenderer m_wallRenderer;
+    MapRenderer m_wallRoofRenderer;
+
+    // 사운드
+    int m_backgroundMusic = -1;
 
 public:
     DebugScene(

@@ -1,3 +1,4 @@
+
 #include "Player.h"
 #include <cmath>
 
@@ -8,13 +9,45 @@ Player::Player(
     m_animator(animationManager),
     m_position{ 640.0f, 360.0f },
     m_moveSpeed(150.0f),
-    m_facingDirection("down")
+    m_facingDirection("down"),
+    m_isAttacking(false)
 {
     m_animator.Play("idle_down");
 }
 
 void Player::Update(float deltaTime)
 {
+    // =================================
+    // 1. 공격 중인 경우
+    // =================================
+
+    if (m_isAttacking)
+    {
+        m_animator.Update(deltaTime);
+
+        if (m_animator.IsFinished())
+        {
+            if (m_inputManager.IsPress('J'))
+            {
+                m_animator.Play(
+                    "attack_" + m_facingDirection,
+                    false
+                );
+            }
+            else
+            {
+                m_isAttacking = false;
+            }
+        }
+
+        return;
+    }
+
+
+    // =================================
+    // 2. 이동 입력
+    // =================================
+
     float moveX = 0.0f;
     float moveY = 0.0f;
 
@@ -30,19 +63,11 @@ void Player::Update(float deltaTime)
     if (m_inputManager.IsPress('D'))
         moveX += 1.0f;
 
-    bool isAttacking = false;
 
-    if (m_inputManager.IsPress('J'))
-    {
-        isAttacking = true;
-    }
+    // =================================
+    // 3. 바라보는 방향 갱신
+    // =================================
 
-    if (m_inputManager.IsUp('J'))
-    {
-        isAttacking = false;
-    }
-    
-    // 바라보는 방향 갱신
     if (moveX < 0.0f)
         m_facingDirection = "left";
     else if (moveX > 0.0f)
@@ -52,14 +77,34 @@ void Player::Update(float deltaTime)
     else if (moveY > 0.0f)
         m_facingDirection = "down";
 
-    bool isMoving = (moveX != 0.0f || moveY != 0.0f);
 
-    if (isAttacking)
+    // =================================
+    // 4. 공격 입력
+    // =================================
+
+    if (m_inputManager.IsDown('J'))
     {
-        m_animator.Play("attack_" + m_facingDirection);
+        m_isAttacking = true;
+
+        m_animator.Play(
+            "attack_" + m_facingDirection,
+            false
+        );
+
+        m_animator.Update(deltaTime);
+
+        return;
     }
 
-    if (isMoving && !isAttacking)
+
+    // =================================
+    // 5. 이동 및 애니메이션
+    // =================================
+
+    bool isMoving =
+        (moveX != 0.0f || moveY != 0.0f);
+
+    if (isMoving)
     {
         float length = std::sqrt(
             moveX * moveX + moveY * moveY
@@ -68,15 +113,21 @@ void Player::Update(float deltaTime)
         moveX /= length;
         moveY /= length;
 
-        m_position.x += moveX * m_moveSpeed * deltaTime;
-        m_position.y += moveY * m_moveSpeed * deltaTime;
+        m_position.x +=
+            moveX * m_moveSpeed * deltaTime;
 
-        m_animator.Play("walk_" + m_facingDirection);
+        m_position.y +=
+            moveY * m_moveSpeed * deltaTime;
+
+        m_animator.Play(
+            "walk_" + m_facingDirection
+        );
     }
-    
-    if (!isMoving && !isAttacking)
+    else
     {
-        m_animator.Play("idle_" + m_facingDirection);
+        m_animator.Play(
+            "idle_" + m_facingDirection
+        );
     }
 
     m_animator.Update(deltaTime);

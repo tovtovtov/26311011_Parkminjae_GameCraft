@@ -9,10 +9,15 @@ private:
 
     int m_textureKey = -1;
     int m_tileColumns = 0;
+    int m_tileRows = 0;
 
 public:
-    void Init(MapData* mapData, int textureKey,
-        int textureWidth, int textureHeight);
+    void Init(
+        MapData* mapData,
+        int textureKey,
+        int textureWidth,
+        int textureHeight
+    );
 
     void Render();
 };

@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include "InputManager.h"
@@ -14,6 +15,8 @@ private:
     float m_moveSpeed;
 
     std::string m_facingDirection;
+
+    bool m_isAttacking;
 
 public:
     Player(
